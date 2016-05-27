@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans />
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings type="org.apache.struts.action.ActionMapping">
+  			
+  		<!-- 登录页面 -->
+		<action path="/login" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="loginView" path="/login.jsp" /> 
+			<forward name="indexView" path="/index.jsp" /> 
+		</action>
+		
+		
+		<!-- 患者信息处理action-->
+		<action path="/patient" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="addPatientView" path="/addPatient.jsp" /> 
+			<forward name="fowardJspView" path="/fowardJsp.jsp" /> 
+			<forward name="patientListView" path="/patientList.jsp" />
+			<forward name="patientDetailOrUpdateView" path="/patientDetailOrUpdate.jsp" />
+		</action>
+		
+		<!--医生信息处理action-->
+		<action path="/doctor" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="addDoctorView" path="/addDoctor.jsp" /> 
+			<forward name="fowardJspView" path="/fowardJsp.jsp" /> 
+			<forward name="doctorListView" path="/doctorList.jsp" />
+			<forward name="doctorDetailOrUpdateView" path="/doctorDetailOrUpdateUI.jsp" />
+		</action>
+		
+		
+		<!--科目信息处理action-->
+		<action path="/subject" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="subjectView" path="/subjectJsp.jsp" /> 
+			<forward name="addOrUpdateSubjectView" path="/addOrUpdateSubjectUI.jsp" /> 
+		</action>
+		
+		
+		<!--问题管理action-->
+		<action path="/question" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="questionAddView" path="/questionAdd.jsp" /> 
+			<forward name="questionListView" path="/questionList.jsp" /> 
+			<forward name="fowardJspView" path="/fowardJsp.jsp" /> 
+			<forward name="questionView" path="/question.jsp" /> 
+		</action>
+		
+		<!--答案管理action-->
+		<action path="/answer" scope="request" validate="false" parameter="method"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="subjectView" path="/subjectJsp.jsp" /> 
+			<forward name="addOrUpdateSubjectView" path="/addOrUpdateSubjectUI.jsp" /> 
+		</action>
+		
+  </action-mappings>
+   	<plug-in  className =  "org.springframework.web.struts.ContextLoaderPlugIn" >
+   			<set-property  property = "contextConfigLocation"  value ="/WEB-INF/classes/applicationContext.xml" />
+	</plug-in>
+
+  <message-resources parameter="com.rems.struts.ApplicationResources" />
+</struts-config>
+

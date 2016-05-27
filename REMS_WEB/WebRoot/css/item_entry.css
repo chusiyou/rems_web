@@ -1,0 +1,27 @@
+body,html{_background:url(about:blank) fixed;}
+div,form,input,textarea,body,html{margin:0;padding:0;font-size:12px;}
+.clearfix{*zoom:1;}
+.clearfix:after{ visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.public-pop-rp{background:url(../images/y_pop_sp.png) no-repeat;_background:url(../images/y_pop_sp.gif) no-repeat;}
+.public-pop{width:270px;height:266px;position:fixed;_position:absolute;z-index:10000;bottom:0;right:6px;_top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight));background-color:#fff;}
+.public-pop-hd{height:40px;border-radius:3px 3px 0 0;background-color:#fc7732;}
+.public-pop-logo{float:left;display:inline;width:138px;height:30px;margin:6px 0 0 10px;background-position:0 0;}
+.public-pop-bd{height:218px;overflow:hidden;border:2px solid #fc7732;border-top:0 none;}
+.public-pop-pad{padding-top:10px;}
+.public-pop-item{float:left;display:inline;margin:5px 0 0 5px;width:124px;height:42px;border:1px solid #e2e2e2;line-height:normal;text-decoration:none;transition:box-shadow 0.2s;-webkit-transition:box-shadow 0.2s;-moz-transition:box-shadow 0.2s;-o-transition:box-shadow 0.2s;-ms-transition:box-shadow 0.2s;}
+.public-pop-item:hover{border-color:#f6ac86;box-shadow:0 0 6px 0 rgba(252,119,50,.9);text-decoration:none;}
+.public-pop-itemask{background-position:8px -33px;}
+.public-pop-itemplus{margin-left:3px;background-position:8px -173px;}
+.public-pop-itemfmdoc{background-position:8px -81px;}
+.public-pop-itemphdoc{margin-left:3px;background-position:8px -217px;}
+.public-pop-itembaike{background-position:10px -125px;}
+.public-pop-itemdrug{margin-left:3px;background-position:8px -263px;}
+.public-pop-s1{display:block;padding:5px 0 0 42px;color:#999;}
+.public-pop-s2{display:block;padding:4px 0 0 45px;color:#333;}
+.public-pop-close{position:absolute;top:-4px;right:-5px;width:30px;height:30px;cursor:pointer;background-position:-147px 0;}
+.public-pop-x{ display:none;width:36px;height:112px;position:fixed;_position:absolute;bottom:5px;right:0;cursor:pointer;_top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight - 5));background-position:-140px -57px;}
+.public-pop-xclose{position:absolute;top:-6px;left:-4px;width:18px;height:18px;background-position:-153px -36px;}
+.public-pop-appd {padding-top:15px;}
+.public-pop-appd a{display:block;padding-left:5px;height:46px;background:url(../images/app_mb.gif) 15px center no-repeat #eaebe9;cursor:pointer; color:#666; font-size:12px; text-decoration:none;}
+.public-pop-appd span{ margin-left:35px;background:url(../images/app_lod.gif) right 14px no-repeat; display:inline-block; height:46px; line-height:46px; padding-right:55px;}
+.public-pop-appd a:hover{ text-decoration:none;}

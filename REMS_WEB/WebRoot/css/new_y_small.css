@@ -1,0 +1,17 @@
+body,html{_background:url(about:blank) fixed;}
+div,form,input,textarea,body,html{margin:0;padding:0;}
+.public-pop-rp{background:url(../images/rt_y_pop.gif) no-repeat;}
+.public-pop{width:228px;height:188px;position:fixed;_position:absolute;z-index:10000;bottom:0;right:6px;_top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight));background-color:#fff;}
+.public-pop-hd{height:35px;}
+.public-pop-bd{padding-top:10px;height:142px;overflow:hidden;border:1px solid #fe7737;border-top:0 none; border-radius:0px 0px 4px 4px;}
+.public-pop-textarea{display:block;margin:0 auto;width:185px;height:52px;padding:5px 10px;overflow:auto;outline:none;border:1px solid #dedede;border-radius:4px;resize:none;color:#999;font-size:12px; line-height:18px;}
+.public-pop-text{padding:15px 0 0 22px;font-size:14px;color:#666;}
+.public-pop-text span{color:#ff0000;}
+.public-pop-btn{margin-left:10px;width:82px;height:26px;border:0 none;cursor:pointer;background-position:0 -39px;}
+.public-pop-close{position:absolute;top:-4px;right:-5px;width:26px;height:26px;cursor:pointer;background-position:-31px -100px;}
+.public-pop-x{ display:none;width:30px;height:101px;position:fixed;_position:absolute;bottom:5px;right:0;cursor:pointer;_top:expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight - 5));background-position:-86px -39px;}
+.public-pop-xclose{position:absolute;top:-6px;left:-4px;width:19px;height:17px;background-position:0 -104px;}
+.public-pop-appd {padding-top:7px;*padding-top:6px;}
+.public-pop-appd a{display:block;height:35px; line-height:35px;background:url(../images/app_mb.gif) 10px center no-repeat #eaebe9; color:#666; font-size:12px; text-decoration:none;}
+.public-pop-appd a span{ margin-left:35px;background:url(../images/app_lod.gif) right 8px no-repeat; display:inline-block; height:35px; line-height:35px; padding-right:28px;}
+.public-pop-appd a:hover{ text-decoration:underline;}

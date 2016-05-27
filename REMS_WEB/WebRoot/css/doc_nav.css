@@ -1,0 +1,55 @@
+/*public*/
+.w1000{width:1000px;}
+/*head item*/
+#header{ z-index:200; position:relative;}
+.j-logo{width:132px;height:46px;}
+.public-hd{height:85px;z-index:5;}
+.public-hd-nav li{float:left;width:116px;height:34px;display:inline;margin:25px 0 0 12px;text-indent:-9999px;background:url(http://static.img.xywy.com/xy_s_public/images/xy_s_nav.gif) no-repeat;}
+.public-hd-nav .j-nav{background-position:0 0;}
+.public-hd-nav .dg-nav{background-position:0 -37px;}
+.public-hd-nav .exp-nav{background-position:0 -74px;}
+.public-hd-nav .club-nav{background-position:0 -111px;}
+.public-hd-nav .sc-nav{background-position:0 -147px;}
+.public-hd-nav a{display:block;height:34px;}
+.public-main-nav{height:38px;background-color:#28b4c3;position:relative; z-index:100;}
+.public-slogo{margin-top:19px;}
+.public-hd-nav .exp-nav{width:116px;height:34px;background:url(http://static.img.xywy.com/expert_pro/images/zjpd.gif) no-repeat;}
+.public-hd .z-descripe{width:103px;height:43px;margin-top:3px;background:url(http://static.img.xywy.com/expert_pro/images/z_des.gif) no-repeat;}
+.z-descripe a{width:83px;height:43px;display:block;}
+.public-hd-nav a {display: block;height: 34px;}
+.public-hd-nav .wksc-nav{width:116px;height:34px;background:url(http://static.img.xywy.com/expert_pro/images/wksc.gif) no-repeat;}
+.j-nav .j-nav-menu a {color:#666;height:24px;line-height:24px;margin-top: 5px;padding-left: 21px;}
+/*nav*/
+.nav-list{width:670px;height:38px;}
+.nav-list li {float:left;display:inline;width:110px;height:38px;line-height:38px;margin-right:1px;cursor: pointer;text-align:center;}
+/* .nav-a{width:110px;height:38px;display:block;background:url(http://static.img.xywy.com/expert_pro/images/nav.png) no-repeat;}
+.nav-a:hover{background-color:#1ba0af;}
+.nav-list .nav-index{background-position:7px 0;}
+.nav-list .nav-search-doc{background-position:23px -48px;}
+.arrow_ico{background:url(http://static.img.xywy.com/expert_pro/images/arrow.gif) no-repeat;}
+.arrow{display:block;width:7px;height:4px;top:17px;right:20px;background-position:0 -36px;}
+.arrow-on{display:block;width:7px;height:4px;top:17px;right:20px;background-position:0 0;}
+.nav-list .nav-appointment{background-position:23px -96px;}
+.nav-list .nav-consult{background-position:23px -144px;}
+.nav-list .nav-phone{background-position:23px -192px;}
+.nav-list .nav-expert{background-position:23px -240px;}
+.nav-list .current{background-color:#1ba0af;}
+.nav-list .current .nav-index  ,.nav-list .nav-index:hover{background-position:7px -288px;background-color:#1ba0af;}
+.nav-list .current .nav-search-doc  ,.nav-list .nav-search-doc:hover{background-position:23px -336px;background-color:#1ba0af;}
+.nav-list .current .nav-appointment  ,.nav-list .nav-appointment:hover{background-position:23px -384px;background-color:#1ba0af;}
+.nav-list .current .nav-consult  ,.nav-list .nav-consult:hover{background-position:23px -432px;background-color:#1ba0af;}
+.nav-list .current .nav-phone  ,.nav-list .nav-phone:hover{background-position:22px -480px;background-color:#1ba0af;}
+.nav-list .current .nav-expert  ,.nav-list .nav-expert:hover{background-position:23px -528px;background-color:#1ba0af;} */
+.nav-a{width:110px;height:38px;line-height:38px;display:block;color:#fff;font-family:\5FAE\8F6F\96C5\9ED1;font-size:16px;}
+.nav-a:hover{background-color:#1ba0af;text-decoration:none;}
+.arrow_ico{background:url(http://static.img.xywy.com/expert_pro/images/arrow.gif) no-repeat;}
+.arrow{display:block;width:7px;height:4px;top:17px;right:20px;background-position:0 -36px;}
+.arrow-on{display:block;width:7px;height:4px;top:17px;right:20px;background-position:0 0;}
+.nav-list .current,.nav-index:hover{background-color:#1ba0af;}
+.nav-list .hot{width:22px;height:14px;top:2px;right:5px;background:url(http://static.img.xywy.com/expert_pro/images/hot.gif) no-repeat;}
+.nav-child-menu{width:108px;height:84px;border:1px solid #93d9e1;left:0;top:38px;border-top:none;background:#fff;z-index:99;}
+.nav-child-menu a{width:108px;height:28px;display:block;line-height:28px;color:#666;text-align:center;text-indent:0;}
+.nav-child-menu a:hover{background:#e9f7f9;text-decoration:none;}
+.nav-search-box{line-height:normal;margin-top:3px;}
+.nav-search{width:238px;height:32px;line-height:32px;border:0 none;color:#ccc;background:url(http://static.img.xywy.com/expert_pro/images/search.gif) no-repeat;}
+.nav-search-btn{width:61px;height:32px;border:0 none;background:url(http://static.img.xywy.com/expert_pro/images/search_btn.gif) no-repeat;}
