@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/rems"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="chusiyou"></property>
+		<property name="testOnBorrow" value="true"></property>
+  		<property name="testOnReturn" value="true"></property>
+  		<property name="testWhileIdle" value="true"></property>
+   		<property name="validationQuery" value="SELECT 1"></property>
+   		<property name="timeBetweenEvictionRunsMillis" value="3600000"></property>
+   		<property name="minEvictableIdleTimeMillis" value="3600000"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>  
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/rems/vo/UsersVO.hbm.xml</value>
+				<value>com/rems/vo/PatientVO.hbm.xml</value>
+				<value>com/rems/vo/DoctorVO.hbm.xml</value>
+				<value>com/rems/vo/Answer.hbm.xml</value>
+				<value>com/rems/vo/Question.hbm.xml</value>
+				<value>com/rems/vo/Subject.hbm.xml</value></list>
+		</property>
+	</bean>
+	
+	
+	
+	 <!-- 定义事务管理器（声明式的事务） -->  
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" />
+        </tx:attributes>
+    </tx:advice>
+    
+    <aop:config>
+        <aop:pointcut id="interceptorPointCuts"
+            expression="execution(* com.rems.vo.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice"
+            pointcut-ref="interceptorPointCuts" />        
+    </aop:config>   
+    
+     <aop:config proxy-target-class="true"> </aop:config>
+     
+	<bean id="UsersVODAO" class="com.rems.vo.UsersVODAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="PatientVODAO" class="com.rems.vo.PatientVODAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DoctorVODAO" class="com.rems.vo.DoctorVODAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="patientService" class="com.rems.service.impl.PatientServiceImpl">
+		<property name="patientVODAO">
+			<ref bean="PatientVODAO" />
+		</property>
+	</bean>
+	
+	<bean id="subjectService" class="com.rems.service.impl.SubjectServiceImpl">
+		<property name="subjectDAO">
+			<ref bean="SubjectDAO" />
+		</property>
+	</bean>
+	
+	
+	<bean id="doctorService" class="com.rems.service.impl.DoctorServiceImpl">
+		<property name="doctorDao">
+			<ref bean="DoctorVODAO" />
+		</property>
+	</bean>
+	
+	<bean id="answerService" class="com.rems.service.impl.AnswerServiceImpl">
+		<property name="answerDAO">
+			<ref bean="AnswerDAO" />
+		</property>
+	</bean>
+	
+	<bean id="questionService" class="com.rems.service.impl.QuestionServiceImpl">
+		<property name="questionDAO">
+			<ref bean="QuestionDAO" />
+		</property>
+	</bean>
+	
+	
+	<bean name="/patient" class="com.rems.struts.PatientAction">
+		<property name="patientService">
+			<ref bean="patientService" />
+		</property>
+		<property name="answerService">
+			<ref bean="answerService" />
+		</property>
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+	</bean>
+	
+	<bean name="/doctor" class="com.rems.struts.DoctorAction">
+		<property name="doctorService">
+			<ref bean="doctorService" />
+		</property>
+		<property name="subjectService">
+			<ref bean="subjectService" />
+		</property>
+	</bean>
+	
+	
+	<bean name="/question" class="com.rems.struts.QuestionAction">
+		<property name="subjectService">
+			<ref bean="subjectService" />
+		</property>
+		<property name="questionService">
+			<ref bean="questionService" />
+		</property>
+		<property name="patientService">
+			<ref bean="patientService" />
+		</property>
+		<property name="answerService">
+			<ref bean="answerService" />
+		</property>
+		<property name="doctorService">
+			<ref bean="doctorService" />
+		</property>
+	</bean>
+	
+	<bean name="/answer" class="com.rems.struts.AnswerAction">
+		
+	</bean>
+	
+	<bean name="/login" class="com.rems.struts.LoginAction">
+		<property name="doctorService">
+			<ref bean="doctorService" />
+		</property>
+		<property name="patientService">
+			<ref bean="patientService" />
+		</property>
+	</bean>
+	
+	<bean name="/subject" class="com.rems.struts.SubjectAction">
+		<property name="subjectService">
+			<ref bean="subjectService" />
+		</property>
+	</bean>
+
+	<bean id="AnswerDAO" class="com.rems.vo.AnswerDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="QuestionDAO" class="com.rems.vo.QuestionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="SubjectDAO" class="com.rems.vo.SubjectDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>
